@@ -12,15 +12,27 @@ class DockingStation
   # Fail if there are not bikes in the @bikes array
   # Otherwise 'pop' a bike of the end of the array
   def release_bike
-    fail "bike not present" if @bikes.empty?
+    fail "bike not present" if empty?
     @bikes.pop
   end
 
   # Fail if there are more than 20 bikes in the @bikes array
   # Otherwise, add a bike to the array
   def dock_bike(bike)
-    fail 'Docking station at capacity!' if @bikes.count >= 20
+    fail 'Docking station at capacity!' if full?
     @bikes << bike
+  end
+
+  # Defining Private methods
+  private
+  # Check if the @bikes array is empty
+  def empty?
+    @bikes.empty?
+  end
+
+  # Check if the @bikes array is greater than or equal to 20
+  def full?
+    @bikes.count >= 20
   end
 
 end
