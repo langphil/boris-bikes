@@ -3,6 +3,7 @@ require_relative 'bike'
 # DockingStation Class
 class DockingStation
   attr_reader :bike
+  DEFAULT_CAPACITY = 20
 
   # Initializing with an empty array
   def initialize
@@ -32,7 +33,7 @@ class DockingStation
 
   # Check if the @bikes array is greater than or equal to 20
   def full?
-    @bikes.count >= 20
+    @bikes.count >= DEFAULT_CAPACITY
   end
 
 end
