@@ -1,11 +1,13 @@
 require './lib/docking_station'
 
 station = DockingStation.new
-#bike = station.release
-
 bike = Bike.new
-station.dock_bike(bike)
+p bike
+
+p 'Adding 20 bikes to the Docking Station'
+20.times { station.dock_bike(bike) }
 p station
 
-bike = station.release_bike
+p 'Removing 20 bikes from the station'
+20.times { station.release_bike }
 p station
