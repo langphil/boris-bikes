@@ -2,12 +2,13 @@ require_relative 'bike'
 
 class DockingStation
   attr_reader :bike
+  
   def release_bike
     fail "bike not present" unless @bike
     @bike
   end
 
-  def dock (bike)
+  def dock(bike)
     @bike = bike
   end
 end
