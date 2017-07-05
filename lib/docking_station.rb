@@ -2,12 +2,13 @@ require_relative 'bike'
 
 # DockingStation Class
 class DockingStation
-  attr_reader :bike
+  attr_accessor :bike, :capacity
   DEFAULT_CAPACITY = 20
 
-  # Initializing with an empty array
-  def initialize
+  # Initializing with an empty array and capacity
+  def initialize(capacity=DEFAULT_CAPACITY)
     @bikes = []
+    @capacity = capacity
   end
 
   # Fail if there are not bikes in the @bikes array
@@ -19,13 +20,15 @@ class DockingStation
 
   # Fail if there are more than 20 bikes in the @bikes array
   # Otherwise, add a bike to the array
-  def dock_bike(bike)
+  def dock(bike)
     fail 'Docking station at capacity!' if full?
     @bikes << bike
   end
 
   # Defining Private methods
   private
+  # Makes the Instance Variable of 'bikes' accessible
+  attr_reader :bikes
   # Check if the @bikes array is empty
   def empty?
     @bikes.empty?
@@ -33,7 +36,7 @@ class DockingStation
 
   # Check if the @bikes array is greater than or equal to 20
   def full?
-    @bikes.count >= DEFAULT_CAPACITY
+    @bikes.count >= capacity
   end
 
 end
