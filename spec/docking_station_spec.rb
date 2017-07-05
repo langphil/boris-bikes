@@ -6,19 +6,21 @@ describe DockingStation do
   it { is_expected.to respond_to :release_bike}
   it { is_expected.to respond_to(:dock).with(1).argument }
 
-  # Check for a 'Raise error' if there are no bikes in the @bikes array
+  it 'releases working bikes' do
+    subject.dock Bike.new
+    bike = subject.release_bike
+    expect(bike).to be_working
+  end
+
+  it 'doesnt release a broken bike' do
+    bike.report_broken
+    subject.dock bike
+    expect {subject.release_bike}.to raise_error 'Docking station cannot release: bike broken'
+  end
+
   describe '#release_bike' do
     it 'doesnt give out a bike if there are none' do
       expect { subject.release_bike }.to raise_error 'Docking station has no bikes to release'
-    end
-
-    it 'doesnt release a broken bike' do
-      bike1 = Bike.new
-      bike2 = Bike.new
-      bike1.report_broken
-      subject.dock bike1
-      subject.dock bike2
-      expect(subject.release_bike).to eq bike2
     end
   end
 
