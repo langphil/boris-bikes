@@ -1,7 +1,7 @@
 require_relative 'bike'
 
 class DockingStation
-  
+
   attr_accessor :capacity
   DEFAULT_CAPACITY = 20
 
@@ -11,14 +11,14 @@ class DockingStation
   end
 
   def release_bike
-    fail "bike not present" if empty?
+    fail 'Docking station has no bikes to release' if empty?
     bikes.rotate! if bikes[0].broken?
-    fail "Cannot release, bike broken" if bikes[0].broken?
+    fail 'Docking station cannot release: bike broken' if bikes[0].broken?
     @bikes.shift
   end
 
   def dock(bike)
-    fail 'Docking station at capacity!' if full?
+    fail 'Docking station at capacity' if full?
     bikes << bike
   end
 
