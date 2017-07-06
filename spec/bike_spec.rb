@@ -7,4 +7,9 @@ describe Bike do
     subject.report_broken
     expect(subject).to be_broken
   end
+
+  it 'can be fixed by the garage' do
+    subject.report_broken
+    expect(subject).to be_working
+  end
 end

@@ -12,7 +12,7 @@ describe Garage do
       expect { subject.receive_bike bike }.to raise_error 'Garage is at capacity'
     end
   end
-
+  
   describe '#garage_return_bike' do
     it 'doesnt give out a bike if there are none' do
       expect { subject.release_bike }.to raise_error 'Garage has no bikes to return'
