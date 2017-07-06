@@ -9,3 +9,5 @@ station.dock(bike1)
 p station
 station.release_bike
 p station
+van = Van.new
+p van
