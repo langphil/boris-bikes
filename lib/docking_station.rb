@@ -1,5 +1,5 @@
-require 'bike'
-require 'van'
+require_relative 'bike'
+require_relative 'van'
 
 class DockingStation
 
