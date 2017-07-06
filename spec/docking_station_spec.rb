@@ -17,12 +17,6 @@ describe DockingStation do
     expect { subject.release_bike }.to raise_error 'Docking station cannot release: bike broken'
   end
 
-  it 'sends a bike for repair if broken' do
-    bike = double(:bike, broken?: true)
-    subject.dock bike
-    expect { subject.release_bike }.to be van(bike)
-  end
-
   describe '#release_bike' do
     it 'doesnt give out a bike if there are none' do
       expect { subject.release_bike }.to raise_error 'Docking station has no bikes to release'
