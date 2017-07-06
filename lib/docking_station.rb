@@ -1,5 +1,6 @@
 require_relative 'bike'
 require_relative 'van'
+require_relative 'garage'
 
 class DockingStation
 
@@ -18,7 +19,7 @@ class DockingStation
     @bikes.shift
   end
 
-  def dock(bike)
+  def receive_bike(bike)
     fail 'Docking station at capacity' if full?
     bikes << bike
   end

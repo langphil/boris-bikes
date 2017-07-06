@@ -1,4 +1,4 @@
-class Van
+class Garage
 
   attr_accessor :capacity
   DEFAULT_CAPACITY = 10
@@ -9,12 +9,12 @@ class Van
   end
 
   def release_bike
-    fail 'Van has no bikes to release' if empty?
+    fail 'Garage has no bikes to return' if empty?
     @bikes.shift
   end
 
   def receive_bike(bike)
-    fail 'Van docking at capacity' if full?
+    fail 'Garage is at capacity' if full?
     bikes << bike
   end
 
